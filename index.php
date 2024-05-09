@@ -18,10 +18,15 @@ class Production
     $this->title = $new_title;
   }
 
+  public function setLanguage(string $new_language): void
+  {
+    $this->language = $new_language;
+  }
+
   public function setVote(int $vote): void
   {
     if (is_numeric($vote) && $vote > 0 && $vote <= 10) {
-      $this->eta = intval($eta);
+      $this->vote = intval($vote);
     } else {
       var_dump('il valore voto non è corretto');
     }
@@ -29,8 +34,9 @@ class Production
 }
 
 $production1 = new Production('Hello', 'en', '8');
-$production1 = new Production('Ciao', 'it', '4');
+$production2 = new Production('Ciao', 'it', '4');
 
+// var_dump($production1);
 ?>
 
 <!DOCTYPE html>
@@ -45,12 +51,32 @@ $production1 = new Production('Ciao', 'it', '4');
 
 <body>
     <div class="container">
-        <div class="row">
-            <div class="col-6">
-                <?php echo $production1; ?>
+        <div class="row p-2">
+            <div class="card col-6">
+              <h3 class="card-title">
+                <?php echo $production1->title; ?>
+              </h3>
+              <div class="card-body">
+                <p>Language:
+                  <?php echo $production1->language; ?>
+                </p>
+                <p>Vote:
+                  <?php echo $production1->vote; ?>
+                </p>
+              </div>
             </div>
-            <div class="col-6">
-                <?php echo $production2; ?>
+            <div class="card col-6">
+              <h3 class="card-title">
+                <?php echo $production2->title; ?>
+              </h3>
+              <div class="card-body">
+                <p>Language:
+                  <?php echo $production2->language; ?>
+                </p>
+                <p>Vote:
+                  <?php echo $production2->vote; ?>
+                </p>
+              </div>
             </div>
         </div>
     </div>
