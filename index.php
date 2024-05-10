@@ -28,7 +28,36 @@ class Production
     if (is_numeric($vote) && $vote > 0 && $vote <= 10) {
       $this->vote = intval($vote);
     } else {
-      var_dump('il valore voto non è corretto');
+      var_dump('il valore Voto non è corretto');
+    }
+  }
+}
+
+class Movie extends Production {
+  public $profit;
+  public $durartion;
+
+  function __construct(string $_profit, int $_duration)
+  {
+    $this->setProfit($_profit);
+    $this->setDuration($_duration);
+  }
+
+  public function setProfit(string $new_profit): void
+  {
+    if (is_numeric($profit) && $profit >= 0) {
+      $this->profit = intval($profit);
+    } else {
+      var_dump('il valore Profitto non è corretto');
+    }
+  }
+
+  public function setDuration(int $duration): void
+  {
+    if (is_numeric($duration) && $duration > 0) {
+      $this->duration = intval($duration);
+    } else {
+      var_dump('il valore Durata non è corretto');
     }
   }
 }
