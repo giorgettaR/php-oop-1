@@ -28,7 +28,7 @@ class Production
     if (is_numeric($vote) && $vote > 0 && $vote <= 10) {
       $this->vote = intval($vote);
     } else {
-      var_dump('il valore Voto non è corretto');
+      var_dump('il valore vote non è corretto');
     }
   }
 }
@@ -37,27 +37,45 @@ class Movie extends Production {
   public $profit;
   public $durartion;
 
-  function __construct(string $_profit, int $_duration)
+  function __construct(float $_profit, float $_duration)
   {
     $this->setProfit($_profit);
     $this->setDuration($_duration);
   }
 
-  public function setProfit(string $new_profit): void
+  public function setProfit(float $new_profit): void
   {
     if (is_numeric($profit) && $profit >= 0) {
       $this->profit = intval($profit);
     } else {
-      var_dump('il valore Profitto non è corretto');
+      var_dump('il valore profit non è corretto');
     }
   }
 
-  public function setDuration(int $duration): void
+  public function setDuration(float $duration): void
   {
     if (is_numeric($duration) && $duration > 0) {
       $this->duration = intval($duration);
     } else {
-      var_dump('il valore Durata non è corretto');
+      var_dump('il valore duration non è corretto');
+    }
+  }
+}
+
+class TVSeries extends Production {
+  public $numberOfSeasons;
+
+  function __construct(int $_numberOfSeasons)
+  {
+    $this->setNumberOfSeasons($_numberOfSeasons);
+  }
+
+  public function setNumberOfSeasons(int $new_numberOfSeasons): void
+  {
+    if (is_numeric($numberOfSeasons) && $numberOfSeasons >= 0) {
+      $this->numberOfSeasons = intval($numberOfSeasons);
+    } else {
+      var_dump('il valore numberOfSeasons non è corretto');
     }
   }
 }
