@@ -35,7 +35,7 @@ class Production
 
 class Movie extends Production {
   public $profit;
-  public $durartion;
+  public $duration;
 
   function __construct(float $_profit, float $_duration)
   {
@@ -43,7 +43,7 @@ class Movie extends Production {
     $this->setDuration($_duration);
   }
 
-  public function setProfit(float $new_profit): void
+  public function setProfit(float $profit): void
   {
     if (is_numeric($profit) && $profit >= 0) {
       $this->profit = intval($profit);
@@ -82,6 +82,12 @@ class TVSeries extends Production {
 
 $production1 = new Production('Hello', 'en', '8');
 $production2 = new Production('Ciao', 'it', '4');
+
+$Movie1 = new Movie( '123', '123');
+$Movie1->title = 'Halo!';
+$Movie1->language = 'de';
+$Movie1->vote = '3';
+var_dump($Movie1);
 
 // var_dump($production1);
 ?>
@@ -122,6 +128,25 @@ $production2 = new Production('Ciao', 'it', '4');
                 </p>
                 <p>Vote:
                   <?php echo $production2->vote; ?>
+                </p>
+              </div>
+            </div>
+            <div class="card col-6">
+              <h3 class="card-title">
+                <?php echo $Movie1->title; ?>
+              </h3>
+              <div class="card-body">
+                <p>Language:
+                  <?php echo $Movie1->language; ?>
+                </p>
+                <p>Vote:
+                  <?php echo $Movie1->vote; ?>
+                </p>
+                <p>Profit:
+                  <?php echo $Movie1->profit; ?>
+                </p>
+                <p>Duration:
+                  <?php echo $Movie1->duration; ?>
                 </p>
               </div>
             </div>
